@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "343409383355",
+    "project_id": "linkybin-69c49",
+    "storage_bucket": "linkybin-69c49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343409383355:android:757cf563cc30a44b04969e",
+        "android_client_info": {
+          "package_name": "com.opxica.linkybin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn3XyfH_8Ur48unkh5EaCwkTSv-9pU88I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
