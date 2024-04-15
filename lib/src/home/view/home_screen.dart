@@ -30,6 +30,9 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           showModalBottomSheet(
               context: context,
+              enableDrag: true,
+              isScrollControlled: true,
+              showDragHandle: true,
               builder: (context) {
                 return AddLinkSheet(textEditingController: textEditingController);
               });
