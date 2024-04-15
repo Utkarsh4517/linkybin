@@ -3,13 +3,38 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkybin/constants/colors.dart';
 import 'package:linkybin/constants/dimensions.dart';
+import 'package:linkybin/src/home/view/widgets/add_link_sheet.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final TextEditingController textEditingController = TextEditingController();
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: blueColor,
+        child: Icon(Icons.add, color: whiteColor, weight: 20),
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (BuildContext context) {
+                return AddLinkSheet(textEditingController: textEditingController);
+              });
+        },
+      ),
       appBar: AppBar(
         backgroundColor: whiteColor,
         surfaceTintColor: whiteColor,
@@ -28,7 +53,7 @@ class HomeScreen extends StatelessWidget {
       drawer: const Drawer(),
       body: const Center(
         child: Text(
-          'HomeScreen ',
+          'HomeScreen',
         ),
       ),
     );
