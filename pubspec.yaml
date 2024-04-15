@@ -47,7 +47,8 @@ dependencies:
   http: ^1.2.0
   logger: ^2.2.0
   flutter_svg: ^2.0.10+1
-  google_fonts: ^6.2.0
+  google_fonts: ^5.1.0
+  modular_ui: ^0.0.5
 
 dev_dependencies:
   flutter_test:
