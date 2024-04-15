@@ -1,0 +1,18 @@
+List<String> categories = [
+  'Reddit',
+  'Twitter',
+  'Instagram',
+  'Web',
+  'Facebook',
+  'Youtube',
+  'LinkedIn',
+  'TikTok',
+  'Github',
+  'Pinterest',
+  'Vimeo',
+  'Quora',
+  'Medium',
+  'Tinder',
+  'Bumble',
+  'Others',
+];

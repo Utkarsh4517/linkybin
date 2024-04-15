@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           showModalBottomSheet(
               context: context,
-              builder: (BuildContext context) {
+              builder: (context) {
                 return AddLinkSheet(textEditingController: textEditingController);
               });
         },
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: const Drawer(),
       body: const Center(
         child: Text(
-          'HomeScreen',
+          'HomeScreen ',
         ),
       ),
     );
