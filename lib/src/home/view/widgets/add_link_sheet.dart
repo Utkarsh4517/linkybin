@@ -1,6 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:linkybin/constants/colors.dart';
 import 'package:linkybin/constants/dimensions.dart';
+import 'package:linkybin/src/home/data/model/linkybin.model.dart';
+import 'package:linkybin/src/home/data/repo/firebase_repo.dart';
 import 'package:modular_ui/modular_ui.dart';
 
 class AddLinkSheet extends StatelessWidget {
@@ -39,7 +43,13 @@ class AddLinkSheet extends StatelessWidget {
             bgColor: blueColor,
             tappedBgColor: deepBlueColor,
             text: 'Save this link!',
-            onPressed: () {},
+            onPressed: () async {
+              final bool result = await FirebaseRepository.saveLink(linkyBinModel: LinkyBinModel(url: textEditingController.text));
+              if (result) {
+                Navigator.pop(context);
+                textEditingController.clear();
+              }
+            },
           ),
         ],
       ),
