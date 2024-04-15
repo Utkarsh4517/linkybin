@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:linkybin/src/home/ui/home_screen.dart';
+import 'package:linkybin/src/home/view/home_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});

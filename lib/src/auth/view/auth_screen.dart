@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkybin/constants/colors.dart';
 import 'package:linkybin/constants/dimensions.dart';
-import 'package:linkybin/src/auth/service/auth_service.dart';
+import 'package:linkybin/src/auth/data/service/auth_service.dart';
 import 'package:modular_ui/modular_ui.dart';
 
 class AuthScreen extends StatefulWidget {

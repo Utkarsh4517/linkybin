@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:linkybin/src/auth/ui/auth_screen.dart';
-import 'package:linkybin/src/onBoarding/ui/intro_page1.dart';
-import 'package:linkybin/src/onBoarding/ui/intro_page2.dart';
-import 'package:linkybin/src/onBoarding/ui/intro_page3.dart';
+import 'package:linkybin/src/auth/view/auth_screen.dart';
+import 'package:linkybin/src/onBoarding/view/intro_page1.dart';
+import 'package:linkybin/src/onBoarding/view/intro_page2.dart';
+import 'package:linkybin/src/onBoarding/view/intro_page3.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingScreen extends StatefulWidget {
