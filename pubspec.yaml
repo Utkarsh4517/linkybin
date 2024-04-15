@@ -49,6 +49,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   google_fonts: ^5.1.0
   modular_ui: ^0.0.5
+  cloud_firestore: ^4.15.8
 
 dev_dependencies:
   flutter_test:
