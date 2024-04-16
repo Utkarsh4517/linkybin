@@ -126,16 +126,20 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       if (!snapshot.hasData) {
                         return const Center(child: CircularProgressIndicator());
                       }
-                  
+
                       List<LinkyBinModel> linkyBinModels = snapshot.data!;
                       return ListView.builder(
                         itemCount: linkyBinModels.length,
                         itemBuilder: (context, index) {
                           final linkyBinModel = linkyBinModels[index];
-                          return ListTile(
-                            title: Text(linkyBinModel.url),
-                            subtitle: Text(linkyBinModel.category),
-                          );
+                          if (linkyBinModel.category == category) {
+                            return ListTile(
+                              title: Text(linkyBinModel.url),
+                              subtitle: Text(linkyBinModel.category),
+                            );
+                          } else {
+                            return const SizedBox();
+                          }
                         },
                       );
                     },
