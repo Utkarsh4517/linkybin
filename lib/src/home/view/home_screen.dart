@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkybin/constants/colors.dart';
 import 'package:linkybin/constants/dimensions.dart';
 import 'package:linkybin/core/categories.dart';
+import 'package:linkybin/src/home/data/model/linkybin.model.dart';
+import 'package:linkybin/src/home/data/repo/firebase_repo.dart';
 import 'package:linkybin/src/home/view/bloc/home_bloc.dart';
 import 'package:linkybin/src/home/view/widgets/add_link_sheet.dart';
 import 'package:linkybin/src/home/view/widgets/custom_tabs.dart';
@@ -85,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: getScreenWidth(context) * 0.035),
+                  margin: EdgeInsets.symmetric(horizontal: getScreenWidth(context) * 0.035, vertical: getScreenWidth(context) * 0.05),
                   height: getScreenheight(context) * 0.035,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
@@ -108,6 +110,35 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       CustomTab(text: 'Bumble', isSelected: category == 'Bumble'),
                       CustomTab(text: 'Others', isSelected: category == 'Others'),
                     ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: getScreenWidth(context) * 0.035, vertical: getScreenWidth(context) * 0.05),
+                  height: getScreenheight(context) * 0.75,
+                  child: StreamBuilder<List<LinkyBinModel>>(
+                    stream: FirebaseRepository.fetchLinkyBinModels(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: Text('Error: ${snapshot.error}'),
+                        );
+                      }
+                      if (!snapshot.hasData) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+                  
+                      List<LinkyBinModel> linkyBinModels = snapshot.data!;
+                      return ListView.builder(
+                        itemCount: linkyBinModels.length,
+                        itemBuilder: (context, index) {
+                          final linkyBinModel = linkyBinModels[index];
+                          return ListTile(
+                            title: Text(linkyBinModel.url),
+                            subtitle: Text(linkyBinModel.category),
+                          );
+                        },
+                      );
+                    },
                   ),
                 )
               ],

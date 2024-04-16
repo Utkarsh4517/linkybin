@@ -18,4 +18,15 @@ class FirebaseRepository {
       return false;
     }
   }
+
+  static Stream<List<LinkyBinModel>> fetchLinkyBinModels() {
+    final firestore = FirebaseFirestore.instance;
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+    final userLinksCollection = firestore.collection('users').doc(uid).collection('links');
+    return userLinksCollection.snapshots().map((snapshot) {
+      return snapshot.docs.map((doc) {
+        return LinkyBinModel.fromMap(doc.data());
+      }).toList();
+    });
+  }
 }

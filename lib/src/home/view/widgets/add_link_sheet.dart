@@ -22,7 +22,7 @@ class AddLinkSheet extends StatefulWidget {
 
 class _AddLinkSheetState extends State<AddLinkSheet> {
   final List<bool> _selectedCategory = List.generate(categories.length, (index) => false);
-  String category = '';
+  String category = 'All';
   @override
   Widget build(BuildContext context) {
     return Container(
